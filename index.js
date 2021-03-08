@@ -1,8 +1,13 @@
 const app = require('express')();
 const http = require('http').Server(app);
+
+const clientOrigin = process.env.NODE_ENV === 'production'
+  ? 'http://room-tone-client-qjy9s.ondigitalocean.app'
+  : 'http://localhost:3000'
+
 const io = require('socket.io')(http, {
   cors: {
-    origin: "http://localhost:3000",
+    origin: clientOrigin,
     methods: ["GET", "POST"],
     credentials: true,
   }
