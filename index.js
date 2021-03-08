@@ -7,12 +7,12 @@ const clientOrigin = isProd
   ? 'https://room-tone-client-qjy9s.ondigitalocean.app'
   : 'http://localhost:3000'
 
-const path = isProd
-  ? '/app/socket.io'
-  : '/socket.io'
+// const path = isProd
+//   ? '/socket.io'
+//   : '/socket.io'
 
 const io = require('socket.io')(http, {
-  path,
+  // path,
   cors: {
     origin: clientOrigin,
     methods: ["GET", "POST"],
