@@ -7,12 +7,7 @@ const clientOrigin = isProd
   ? 'https://room-tone-client-qjy9s.ondigitalocean.app'
   : 'http://localhost:3000'
 
-// const path = isProd
-//   ? '/socket.io'
-//   : '/socket.io'
-
 const io = require('socket.io')(http, {
-  // path,
   cors: {
     origin: clientOrigin,
     methods: ["GET", "POST"],
@@ -24,7 +19,7 @@ io.on('connection', (socket) => {
   console.log('a user connected');
 
   socket.on('disconnect', () => {
-    console.log('user disconnected');
+    console.log('a user disconnected');
   });
 });
 
